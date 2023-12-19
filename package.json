@@ -7,7 +7,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "author": "",
+  "author": "liuyuting",
   "license": "ISC",
   "devDependencies": {
     "vuepress": "^1.9.10"

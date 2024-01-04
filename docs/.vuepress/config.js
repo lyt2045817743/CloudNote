@@ -48,6 +48,17 @@ module.exports = {
         ],
       },
       {
+        text: "经验总结",
+        items: [
+          {
+            text: "编程Coding",
+            items: [
+              { text: "项目", link: "/summary/code/project/" },
+            ],
+          },
+        ],
+      },
+      {
         text: "成长",
         items: [{ text: "学习方法", link: "/growth/study/" }],
       },

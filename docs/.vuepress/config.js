@@ -11,7 +11,8 @@ module.exports = {
           sidebarDepth: 2,    // 可选的, 默认值是 1
           children: [
             '/frontend/base/html_css/',
-            '/frontend/base/js/'
+            '/frontend/base/js/',
+            '/frontend/base/vue/'
           ]
         },
         {
@@ -35,6 +36,7 @@ module.exports = {
             items: [
               { text: "HTML&CSS", link: "/frontend/base/html_css/" },
               { text: "JS", link: "/frontend/base/js/" },
+              { text: "VUE", link: "/frontend/base/vue/" },
             ],
           },
           {

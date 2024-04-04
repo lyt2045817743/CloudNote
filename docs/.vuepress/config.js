@@ -21,7 +21,8 @@ module.exports = {
           sidebarDepth: 2,    // 可选的, 默认值是 1
           children: [
             '/frontend/premium/browser/',
-            '/frontend/premium/code/'
+            '/frontend/premium/code/',
+            '/frontend/premium/engineering/'
           ],
         }
       ],

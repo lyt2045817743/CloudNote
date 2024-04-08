@@ -22,7 +22,8 @@ module.exports = {
           children: [
             '/frontend/premium/browser/',
             '/frontend/premium/code/',
-            '/frontend/premium/engineering/'
+            '/frontend/premium/engineering/',
+            '/frontend/premium/performance/'
           ],
         }
       ],
@@ -46,6 +47,7 @@ module.exports = {
               { text: "浏览器", link: "/frontend/premium/browser/" },
               { text: "代码优化", link: "/frontend/premium/code/" },
               { text: "工程化", link: "/frontend/premium/engineering/" },
+              { text: "性能优化", link: "/frontend/premium/performance/" },
             ],
           },
         ],

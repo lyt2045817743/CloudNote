@@ -5,14 +5,74 @@
 
 ## 资源加载
 ### 资源体积更小
-- 压缩代码：webpack
-- 压缩图片
-- 异步组件
+#### 压缩代码
+1. 代码实例：js代码压缩
+```js
+    const TerserPlugin = require('terser-webpack-plugin')
+    module.exports = {
+        ...
+        optimization: {
+            minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                    parallel: true // 电脑cpu核数-1
+                })
+            ]
+        }
+    }
+```
+
+#### 压缩图片
+#### 代码分离
+默认情况下，业务代码、第三方依赖都会在首页全部都加载，这会影响首页的加载速度。
+对此我们可以分离代码、控制加载优先级。
+1. webpack的处理：splitChunksPlugin来实现
+```js
+module.exports = {
+    optimization:{
+        splitChunks:{
+            chunks: "all", // 按需加载：异步组件
+            // minChunks：被引用的次数
+            // maxSize：大于maxSize的包被拆分
+            // minSize：拆分包的大小至少为minSize
+        }
+    }
+}
+```
+
+#### Tree Shaking
+指删除掉没有被使用的代码，依赖于ESM的静态语法分析
+1. usedExports：通过标记某些函数是否被使用，后面通过Terser进行优化
+```js
+    // 配置
+    module.exports = {
+        optimization:{
+            usedExports: true
+        }
+    }
+    // 使用后，webpack会在打包过程中加上注释unused harmony export mul注释，用来告知 Terser 在优化时，可以删除掉这段代码
+
+    /* unused harmony export mul */
+    function sum(num1, num2) {
+        return num1 + num2;
+    }
+```
 
 ### 减少访问次数
-- 资源合并：代码合并、雪碧图
-- SSR
-- 缓存：bundle缓存（webpack contenthash：自动触发http缓存机制304）
+#### 资源合并：代码合并、雪碧图
+#### SSR
+#### 缓存：bundle缓存（webpack contenthash：自动触发http缓存机制304）
+#### 内联chunk（？）
+将一些runtime代码内联到html中，这些代码量不大，但是是必须加载的
+```js
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+module.exports = {
+    plugin:[
+        new InlineChunkHtmlPlugin(HtmlWebpackPlugin,[/runtime.+\.js/])
+    ]
+}
+```
 
 ### 资源位置
 #### CDN

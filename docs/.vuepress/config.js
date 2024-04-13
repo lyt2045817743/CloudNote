@@ -1,3 +1,4 @@
+const { getChildren } = require("./utils");
 module.exports = {
   title: "婷的笔记",
   themeConfig: {
@@ -28,12 +29,31 @@ module.exports = {
       ],
       '/summary/': [
         {
-          title: '2024年',
+          title: '每日一捡',
           sidebarDepth: 2,
           children: [
-            '/summary/review/everyday/2024/04'
+            {
+              title: '2024年',
+              children: [
+                '/summary/everyday/2024/04'
+              ]
+            },
           ]
         },
+        {
+          title: '项目总结',
+          children: [
+            '/summary/project/',
+            {
+              title: "小米",
+              children: [
+                '/summary/project/@mi/live',
+                '/summary/project/@mi/rn',
+                '/summary/project/@mi/qiankun',
+              ]
+            }
+          ]
+        }
       ]
     },
     nav: [
@@ -43,7 +63,7 @@ module.exports = {
         items: [
           {
             text: "基础",
-            link: "/frontend/base/html_css/",
+            link: "/frontend/base/html_css/html",
           },
           {
             text: "进阶",
@@ -55,20 +75,10 @@ module.exports = {
         text: "经验总结",
         items: [
           {
-            text: "编程Coding",
-            items: [
-              { text: "项目", link: "/summary/code/project/" },
-            ],
+            text: "每天一捡",
+            link: "/summary/everyday/2024/04.md",
           },
-          {
-            text: "复习",
-            items: [
-              {
-                text: "每天一捡",
-                link: "/summary/review/everyday/2024/04.md",
-              },
-            ]
-          }
+          { text: "项目总结", link: "/summary/project/" },
         ],
       },
       {

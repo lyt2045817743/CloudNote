@@ -7,7 +7,6 @@ module.exports = {
       '/frontend/': [
         {
           title: '前端基础',   // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2,    // 可选的, 默认值是 1
           children: [
             '/frontend/base/html_css/',
@@ -17,16 +16,25 @@ module.exports = {
         },
         {
           title: '前端进阶',
-          collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2,    // 可选的, 默认值是 1
           children: [
             '/frontend/premium/browser/',
             '/frontend/premium/code/',
             '/frontend/premium/engineering/',
-            '/frontend/premium/performance/'
+            '/frontend/premium/performance/',
+            '/frontend/premium/mobile/'
           ],
         }
       ],
+      '/summary/': [
+        {
+          title: '2024年',
+          sidebarDepth: 2,
+          children: [
+            '/summary/review/everyday/2024/04'
+          ]
+        },
+      ]
     },
     nav: [
       { text: "首页", link: "/" },
@@ -34,21 +42,12 @@ module.exports = {
         text: "前端体系",
         items: [
           {
-            text: "基础知识",
-            items: [
-              { text: "HTML&CSS", link: "/frontend/base/html_css/" },
-              { text: "JS", link: "/frontend/base/js/" },
-              { text: "VUE", link: "/frontend/base/vue/" },
-            ],
+            text: "基础",
+            link: "/frontend/base/html_css/",
           },
           {
             text: "进阶",
-            items: [
-              { text: "浏览器", link: "/frontend/premium/browser/" },
-              { text: "代码优化", link: "/frontend/premium/code/" },
-              { text: "工程化", link: "/frontend/premium/engineering/" },
-              { text: "性能优化", link: "/frontend/premium/performance/" },
-            ],
+            link: "/frontend/premium/browser/",
           },
         ],
       },
@@ -61,6 +60,15 @@ module.exports = {
               { text: "项目", link: "/summary/code/project/" },
             ],
           },
+          {
+            text: "复习",
+            items: [
+              {
+                text: "每天一捡",
+                link: "/summary/review/everyday/2024/04.md",
+              },
+            ]
+          }
         ],
       },
       {
